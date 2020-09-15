@@ -15,7 +15,7 @@ class PHPStack {
 		array_push($this->stack, $item);
 	}
 
-	public function pop($item) {
+	public function pop() {
 		/*
 			Returns top element of the stack and remove it from the current stack.
 		*/
