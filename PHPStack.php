@@ -77,9 +77,32 @@ class PHPStack {
 		return $this->reversed;
 	}
 
+	public function stepBack($stepCount){
+		for ($i=0; $i < $stepCount; $i++) { 
+			$history = array_pop($this->history);
+
+			switch ($history[0]) {
+				case 'pop':
+					array_push($this->stack, $history[1]);
+					break;
+				case 'push':
+					array_pop($this->stack);
+					break;
+				case 'reverse':
+					$this->stack    = array_reverse($this->stack,FALSE);
+					$this->reversed = !$this->reversed;
+					break;
+				default:
+					# code...
+					break;
+			}
+		}
+	}
+
 	private function addHistory($mode,$item = 0){
 		array_push($this->history, array($mode,$item));
 	}
+
 }
 
 ?>
