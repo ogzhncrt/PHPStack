@@ -45,6 +45,10 @@ class PHPStack {
 	}
 
 	public function returnToOriginal(){
+		/*
+			This function reverses the current stack if it is already reversed. 
+			If the current stack is not reversed, will do nothing.
+		*/
 		if($this->reversed){
 			$this->stack    = array_reverse($this->stack,FALSE);
 			$this->reversed = 0;
