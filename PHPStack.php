@@ -44,6 +44,13 @@ class PHPStack {
 		$this->reversed = !$this->reversed;
 	}
 
+	public function returnToOriginal(){
+		if($this->reversed){
+			$this->stack    = array_reverse($this->stack,FALSE);
+			$this->reversed = 0;
+		}
+	}
+
 	public function isEmpty() {
 		/*
 			Returns the current stack is empty or not.
