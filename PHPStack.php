@@ -92,9 +92,6 @@ class PHPStack {
 					$this->stack    = array_reverse($this->stack,FALSE);
 					$this->reversed = !$this->reversed;
 					break;
-				default:
-					# code...
-					break;
 			}
 		}
 	}
