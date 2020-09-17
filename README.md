@@ -8,7 +8,7 @@ PHP Stack Implementation with additional features.
 * Size
 * isEmpty
 
-## Features
+## Additional Features
 * Reverse Function | This function reverses the current stack. 
 * isReverse Function | This function returns the current stack was previously reversed or not
 * returnToOriginal Function | This function reverses the current stack if it is already reversed.
