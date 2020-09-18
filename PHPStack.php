@@ -78,6 +78,9 @@ class PHPStack {
 	}
 
 	public function stepBack($stepCount){
+		/*
+			This function reverses the current stack as many steps as you want.
+		*/
 		for ($i=0; $i < $stepCount; $i++) { 
 			$history = array_pop($this->history);
 
@@ -97,6 +100,10 @@ class PHPStack {
 	}
 
 	private function addHistory($mode,$item = 0){
+		/*
+			This function adds changing to history array
+			History array is actually another stack to store steps.
+		*/
 		array_push($this->history, array($mode,$item));
 	}
 
