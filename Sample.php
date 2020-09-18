@@ -85,4 +85,6 @@
 		|10|
 		|20|
 	*/
+
+	$stack->print("STACK"); //Print as a stack! OTHER OPTIONS = ARRAY, ARRAYREVERSE, STACK
 ?>
