@@ -65,4 +65,24 @@
 		|20|
 	*/
 
+
+	$stack->push(30); //add an item
+	$stack->push(40); //add an item
+	$stack->push(50); //add an item
+	/*
+		Current Stack
+		|50|
+		|40|
+		|30|
+		|10|
+		|20|
+	*/
+
+	$stack->stepBack(2); //Take it back 2 steps.
+	/*
+		Current Stack
+		|30|
+		|10|
+		|20|
+	*/
 ?>
