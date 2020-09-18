@@ -49,6 +49,27 @@ class PHPStack {
 		$this->reversed = !$this->reversed;
 	}
 
+	public function print($mode = "ARRAY"){
+		/*
+			This function print stack to screen with different modes
+			ARRAY | ARRAYREVERSE | STACK
+		*/
+		switch ($mode) {
+			case 'ARRAY': //print as an array
+				print_r($this->stack);
+				break;
+			case 'ARRAYREVERSE': //print as an reverse array
+				print_r(array_reverse($this->stack,FALSE)); 
+				break;
+			case 'STACK': //print as an simple GUI stack.
+				$reversed = array_reverse($this->stack);
+				foreach ($reversed as $key => $value) {
+					echo "| ".$value." |<br>";
+				}
+				break;
+		}
+	}
+
 	
 	public function returnToOriginal(){
 		/*
