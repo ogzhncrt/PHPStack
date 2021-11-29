@@ -1,7 +1,12 @@
 <?php 
 /**
   * Stack Implementation - PHPStack
-  * @author Oguzhan Cerit
+  * 
+  * Stack is a linear data structure that follows a 
+  * particular order in which the operations are performed. 
+  * The order may be LIFO(Last In First Out) or FILO(First In Last Out).
+  * 
+  * @author ogzhncrt
   */
 class PHPStack {
 
@@ -9,51 +14,51 @@ class PHPStack {
 	private $reversed = 0;
 	private $history  = array();
 	
+	/*
+	 Inserts a new element at the top of the current stack.
+	*/
 	public function push($item) {
-		/*
-			Inserts a new element at the top of the current stack.
-		*/
 		array_push($this->stack, $item);
 		$this->addHistory(__FUNCTION__,$item);
 	}
 
+	/*
+		Returns top element of the stack and remove it from the current stack.
+	*/
 	public function pop() {
-		/*
-			Returns top element of the stack and remove it from the current stack.
-		*/
 		$item = array_pop($this->stack);
 		$this->addHistory(__FUNCTION__,$item);
 		return $item;
 	}
 
+	/*
+		Returns top element of the current stack.
+	*/
 	public function top() {
-		/*
-			Returns top element of the current stack.
-		*/
 		return end($this->stack);
 	}
 
+	/*
+		Returns size of the current stack.
+	*/
 	public function size() {
-		/*
-			Returns size of the current stack.
-		*/
 		return count($this->stack);
 	}
 
+	/* 
+		This function reverses the current stack. 
+	*/
 	public function reverse(){
-		/* 
-			This function reverses the current stack. 
-		*/
 		$this->addHistory(__FUNCTION__);
 		$this->stack    = array_reverse($this->stack,FALSE);
 		$this->reversed = !$this->reversed;
 	}
 
+	/*
+		This function print stack to screen with different modes
+		ARRAY | ARRAYREVERSE | STACK
+	*/
 	public function print($mode = "ARRAY"){
-		/*
-			This function print stack to screen with different modes
-			ARRAY | ARRAYREVERSE | STACK
-		*/
 		switch ($mode) {
 			case 'ARRAY': //print as an array
 				print_r($this->stack);
@@ -70,12 +75,11 @@ class PHPStack {
 		}
 	}
 
-	
+	/*
+		This function reverses the current stack if it is already reversed. 
+		If the current stack is not reversed, will do nothing.
+	*/
 	public function returnToOriginal(){
-		/*
-			This function reverses the current stack if it is already reversed. 
-			If the current stack is not reversed, will do nothing.
-		*/
 		if($this->reversed){
 			$this->addHistory("reverse");
 			$this->stack    = array_reverse($this->stack,FALSE);
@@ -83,25 +87,24 @@ class PHPStack {
 		}
 	}
 
-
+	/*
+		Returns the current stack is empty or not.
+	*/
 	public function isEmpty() {
-		/*
-			Returns the current stack is empty or not.
-		*/
 		return empty($this->stack);
 	}
 
+	/* 
+		This function returns the current stack was previously reversed or not. 
+	*/
 	public function isReversed() {
-		/* 
-			This function returns the current stack was previously reversed or not. 
-		*/
 		return $this->reversed;
 	}
 
+	/*
+		This function reverses the current stack as many steps as you want.
+	*/
 	public function stepBack($stepCount){
-		/*
-			This function reverses the current stack as many steps as you want.
-		*/
 		for ($i=0; $i < $stepCount; $i++) { 
 			$history = array_pop($this->history);
 
@@ -120,11 +123,11 @@ class PHPStack {
 		}
 	}
 
+	/*
+		This function adds changing to history array
+		History array is actually another stack to store steps.
+	*/
 	private function addHistory($mode,$item = 0){
-		/*
-			This function adds changing to history array
-			History array is actually another stack to store steps.
-		*/
 		array_push($this->history, array($mode,$item));
 	}
 
